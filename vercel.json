@@ -1,1 +1,4 @@
-{"buildCommand": "npx --yes vite build", "framework": "vite"} 
+{
+  "buildCommand": "npx --yes vite build",
+  "framework": "vite"
+}
