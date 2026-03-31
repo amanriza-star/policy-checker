@@ -1,0 +1,87 @@
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #060a11;
+  --bg-grid: rgba(59,130,246,0.03);
+  --surface: #0d1420;
+  --surface-hover: #131d2e;
+  --surface-raised: #162033;
+  --border: #1a2740;
+  --border-active: #3b82f6;
+  --text: #e8edf5;
+  --text-dim: #7a8ba8;
+  --text-muted: #4a5a74;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59,130,246,0.12);
+  --accent-strong: rgba(59,130,246,0.25);
+  --red: #f43f5e;
+  --red-dim: rgba(244,63,94,0.10);
+  --green: #10b981;
+  --green-dim: rgba(16,185,129,0.10);
+  --amber: #f59e0b;
+  --amber-dim: rgba(245,158,11,0.10);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --font-display: 'Onest', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+}
+
+html {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.5;
+  min-height: 100vh;
+  /* Subtle grid background */
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.2); }
+  50% { box-shadow: 0 0 20px 4px rgba(59,130,246,0.15); }
+}
+
+.animate-fade { animation: fadeIn 0.3s ease-out both; }
+.animate-slide { animation: slideUp 0.4s ease-out both; }
+.animate-slide-d1 { animation: slideUp 0.4s ease-out 0.05s both; }
+.animate-slide-d2 { animation: slideUp 0.4s ease-out 0.10s both; }
+.animate-slide-d3 { animation: slideUp 0.4s ease-out 0.15s both; }
+.animate-slide-d4 { animation: slideUp 0.4s ease-out 0.20s both; }
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--accent-strong);
+  color: #fff;
+}
